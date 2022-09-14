@@ -1,0 +1,534 @@
+
+        <section class="cs_sec cs_w1200">
+            <ul id="kaTop">
+                <li onclick="getShowCT()"><a class="ka" id="ka" href="javascript:void(0);"></a></li>
+                <li><a class="top" id="top" href="javascript:void(0);"></a></li>
+            </ul>
+            <h3>CS CENTER</h3>
+            <div class="cs_tabs">
+                <ul class="cs_tab1">
+                    <li class="cs_active"><a href="javascript:void(0);">NOTICE</a></li>
+                    <li><a href="javascript:void(0);">Q&A</a></li>
+                    <li><a href="javascript:void(0);">FAQ</a></li>
+                </ul>
+
+                <!-- notice tab-->
+                <div class="cs_tabContent cs_active">
+                    <div class="cs_tabContentInner">
+                        <div class="cs_box1">
+                            <!-- notice 나열 -->
+                            <div class="notice_title">
+                                <h1>공지사항</h1>
+                            </div>
+
+                            <!-- 글쓰기 버튼 (notice_write)-->
+                            <article class="write_btn_box">
+                                <div  onclick="javascript:location.href='/newnotice'">새 공지 작성</div>
+                            </article>
+                            
+                            <%rows.forEach(( row, index )=>{%>
+                                <div class="notice_txt_wrap">
+                                    <div class="notice_main_title accordion">
+                                        <div class="notice_txt ">​​​​<%=row.title%></div>
+                                        <span class="notice_date"><%=row.update_time%></span>
+                                    </div>
+                                    <div class="notice_panel">
+                                                
+                                        <%=row.content%>
+                                        <div class="notice_content_btn">
+                                            <div onclick="javascript:location.href='/updateNotice?id=<%=row.id%>'">수정</div>
+                                            <div onclick="javascript:location.href='/deleteNotice?id=<%=row.id%>'">삭제</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            <%})%>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q&A tab-->
+                <div class="cs_tabContent">
+                    <div class="cs_tabContentInner">
+                        <div class="cs_box1">
+                            <!-- Q&A 나열 -->
+                            <div class="ask_title">
+                                <p class="h3 bold">문의하기</p>
+                            </div>
+                            <div class="ask_txt">문의주신 내용은 입력하신 이메일로 답변드리고 있습니다.</div>
+                            <div class="ask_txt">실제 사용하시는 이메일 주소를 정확하게 입력 부탁드립니다.</div>
+                            <div class="notice_txt_wrap">
+                                <div class="ask_box">
+                                    <div class="ask_txt">​​문의유형</div>
+                                    <div class="ask_select">
+                                        <select>
+                                            <option value="회원/정보관리">회원/정보관리</option>
+                                            <option value="회원/정보관리">주문/결제</option>
+                                            <option value="회원/정보관리">배송</option>
+                                            <option value="회원/정보관리">반품/환불/교환/AS</option>
+                                            <option value="회원/정보관리">영수증/증빙서류</option>
+                                            <option value="회원/정보관리">상품/이벤트</option>
+                                            <option value="회원/정보관리">기타</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ask_name_wrap">
+                                <div class="ask_box">
+                                    <div class="ask_name">
+                                        <input type="text">
+                                        <span>이름</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ask_phone_wrap">
+                                <div class="ask_box">
+                                    <div class="ask_phone">
+                                        <input type="text">
+                                        <span>휴대폰</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ask_email_wrap">
+                                <div class="ask_box">
+                                    <div class="ask_email">
+                                        <input type="text">
+                                        <span>이메일</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ask_title_wrap">
+                                <div class="ask_box">
+                                    <div class="ask_title">
+                                        <input type="text">
+                                        <span>문의제목</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ask_content_wrap">
+                                <div class="ask_box">
+                                    <div class="ask_content">
+                                        <textarea></textarea>
+                                        <span>문의내용</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ask_attach">
+                                <h1>첨부파일</h1>
+                            </div>
+                            <div class="ask_attach_file">
+                                <!-- 수정 -->
+                                <div class="insert">
+                                    <form name="insertf" action="insertf" method="post" enctype="multipart/form-data">
+                                        <label for="myFile">+ 추가</label>
+                                        <input type='file' id="myFile" name='' multiple/>
+                                    </form>
+                                    <div id="cs_showFiles"></div>
+                                </div>
+                            </div>
+                            <div class="ask_notice_wrap">
+                                
+                                <div class="ask_notice"><input type="checkbox"><span class="red">(필수)</span>
+                                    <a href="https://www.heynature.co.kr/html/privacy.html">    
+                                        <span class="black"> 비회원 개인정보 수집동의</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="ask_notice_content">
+                                <div class="ask_scroll_wrap">
+                                    <div class="ask_scroll">- 수집항목: 이름, 전화번호, 이메일주소<br>
+                                        - 수집/이용목적: 게시글 접수 및 결과 회신<br>
+                                        - 이용기간: 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;단, 관계법령의 규정에 의하여 보전할 필요가 있는 경우 일정기간 동안 개인정보를 보관할 수 있습니다.<br>
+                                        그 밖의 사항은 '헤이네이처(heynature)'의 개인정보처리방침을 준수합니다.</div>
+                                </div>
+                            </div>
+                            <div class="ask_submit_wrap">
+                                <div class="ask_submit">
+                                    <button>문의하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--FAQ tab-->
+                <div class="cs_tabContent">
+                    <div class="cs_tabContentInner">
+                        <div class="cs_box2">
+                            <ul class="cs_tab2">
+                                <!-- FAQ -->
+                                <li class="cs_active">
+                                    <a href="javascript:void(0);">전체보기</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">회원관련</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">주문/결제</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">적립금/쿠폰</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">배송관련</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">교환/환불/반품</a>
+                                </li>
+                            </ul>
+                            <!--FAQ- 전체보기 tab 상품-->
+                            <div class="cs_tabContent2 cs_active">
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​배송관련</div>
+                                    <div class="qna_txt_right">​​<button class="notice_Slide2">배송은 얼마나 걸리나요?</button></div>
+                                </div>
+                                <div class="qna_contents_detail" style="display: none;">
+                                    당일 배송을 원칙으로 운영하고 있으며 주문 후 1~ 2일 내 지정하신 배송지로 제품을 받을 수 있습니다.
+                                    <br>
+                                    (택배물량, 설, 추석연휴, 천재지변에 따라 4~5일 이상 지연될 수 있으니 양해 부탁드립니다.)
+                                    <br>
+                                    <br>
+                                    당일 주문 마감시간 : 평일 오후 5시
+                                    <br>
+                                    <br>
+                                    * 금요일 오후 5시 이후 주문/결제 건은 월요일에 출고됩니다.
+                                    <br>
+                                    <br>
+                                    * 택배업체: 로젠택배를 이용하여 배송하고 있습니다.
+                                    <br>
+                                    <br>
+                                    * 택배 물량 및 연휴 등으로 마감 시간이 변동될 수 있습니다.                                          
+                                </div>
+
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">적립금/쿠폰</div>
+                                    <div class="qna_txt_right"><a href="">헤이네이처에는 어떤 종류의 적립금들이 있나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">회원관련</div>
+                                    <div class="qna_txt_right">​​<a href="">회원 아이디와 비밀번호가 기억나지 않아요</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">주문/결제</div>
+                                    <div class="qna_txt_right"><a href="">결제방법은 어떤 것이 있나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​주문/결제</div>
+                                    <div class="qna_txt_right">​​<a href="">제품의 옵션 변경을 원할 경우 어떻게 해야 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​적립금/쿠폰</div>
+                                    <div class="qna_txt_right">​​<a href="">카톡 플친 쿠폰 다운이 안될 경우 어떻게 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​적립금/쿠폰</div>
+                                    <div class="qna_txt_right"><a href="">​​카톡 플친은 어떻게 사용하나요?</a></div>
+                                </div>
+                                <!-- FAQ 더보기 2페이지 -->
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​배송관련</div>
+                                    <div class="qna_txt_right">​​<a href="">군부대나 해외배송이 가능한가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">반품/환불이 불가능한 사유는 무엇인가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">환불은 어떻게 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">제품 사용 후 피부 이상이 있는 경우는 어떻게 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        취소/반품 전에 꼭 알아야 하는 내용은 무엇인가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        제품이 불량이에요 / 다른 제품이 왔어요.</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​배송관련</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        주소지, 연락처 오류로 반송처리가 되었다면?</a></div>
+                                </div>
+                                <div class="cs_more_btn">
+                                    <a href="javascript:void(0);" class="cs_more">
+                                        더보기 <span>(<span class="currentPage">1</span> / <span class="totalPage">1</span>)</span>  ▼
+                                    </a>
+                                </div>
+                            </div>
+                            <!--FAQ- 회원관련 tab 상품-->
+                            <div class="cs_tabContent2">
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">회원관련</div>
+                                    <div class="qna_txt_right">​​<button class="notice_Slide3">
+                                        ​​회원 아이디와 비밀번호가 기억나지 않아요.</button></div>
+                                </div>
+                                
+                                <div class="qna_contents_detail2" style="display: none;">
+                                    헤이네이처 로그인시 메뉴에 아이디/비밀번호 찾기에 가시면 간단한 정보 입력으로 회원님의 아이디와 비밀번호를 확인하실 수 있습니다.<br><br>
+                                    아이디/비밀번호 찾기에서 확인이 되시지 않는다면, 고객센터(070-4352-5176)로 문의 주시기 바랍니다.    
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​회원관련</div>
+                                    <div class="qna_txt_right"><a href="">​​	
+                                        회원 탈퇴는 어떻게 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​회원관련</div>
+                                    <div class="qna_txt_right">​​<a href="">회원 정보를 변경하고 싶은데, 어떻게 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​회원관련</div>
+                                    <div class="qna_txt_right">​​<a href="">회원 가입을 해야만 상품 구매가 가능한가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​회원관련</div>
+                                    <div class="qna_txt_right">​​<a href="">회원 가입은 어떻게 하고 어떤 혜택이 있나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​회원관련</div>
+                                    <div class="qna_txt_right">​​<a href="">회원 가입을 해야만 상품 구매가 가능한가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​회원관련</div>
+                                    <div class="qna_txt_right">​​<a href="">회원 가입을 해야만 상품 구매가 가능한가요?</a></div>
+                                </div>
+                                <!-- 2 -->
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​회원관련</div>
+                                    <div class="qna_txt_right">​​<a href="">회원 가입은 어떻게 하고 어떤 혜택이 있나요?</a></div>
+                                </div>
+
+                                <div class="cs_more_btn">
+                                    <a href="javascript:void(0);" class="cs_more">
+                                        더보기 <span>(<span class="currentPage">1</span> / <span class="totalPage">1</span>)</span>  ▼
+                                    </a>
+                                </div>
+                            </div>
+                            <!--FAQ- 주문결제 tab 상품-->
+                            <div class="cs_tabContent2">
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">주문/결제</div>
+                                    <div class="qna_txt_right">​​<button class="notice_Slide4">
+                                        ​​결제방법은 어떤 것이 있나요?</button></div>
+                                </div>
+                                
+                                <div class="qna_contents_detail3" style="display: none;">
+                                    무통장 입금과 신용카드 결제, 간편결제 방법이 있습니다.<br><br>
+                                    * 무통장 입금
+                                    예금주: ㈜ 헤이네이처<br><br>
+                                    국민은행: 421701-04-152804<br>기업은행: 943-007606-01-032<br><br>
+                                    주문시 입력한 입금자명과 실입금자명이 다를 경우,
+                                    자동으로 입금 확인이 되지 않을 수 있어 동일한 입금자명으로 입금 부탁드리며
+                                    입금 후 시간이 지나도 입금 확인이 안 되는 경우에는 게시판 문의 또는 고객센터(070-4352-5176)로 문의 바랍니다.<br><br>
+            
+                                    * 신용카드 결제<br>
+                                    신용카드 결제는 카드선택을 하신 다음 카드사에 따른 다양한 인증형태를 거쳐 결제 해주시면 됩니다.<br><br>
+            
+                                    * 간편결제<br>
+                                    네이버페이(비회원),카카오페이,토스로 결제가 가능하며 원하는 결제수단을 선택하여 결제가 가능합니다.   
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">주문/결제</div>
+                                    <div class="qna_txt_right"><a href="">​​	
+                                        제품의 옵션 변경을 원할 경우 어떻게 해야 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">주문/결제</div>
+                                    <div class="qna_txt_right"><a href="">​​	
+                                        주문을 했는데 주문내역이 없어요. 어떻게 된거죠?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​주문/결제</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        비회원도 주문이 가능한가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">주문/결제</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        주문한 제품의 변경과 취소는 어떻게 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap_last">
+                                    <div class="qna_txt_left">주문/결제</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        주문한 내용과 결제 여부를 알고 싶어요.</a></div>
+                                </div>
+                                <div class="cs_more_btn">
+                                    <a href="javascript:void(0);" class="cs_more">
+                                        더보기 <span>(<span class="currentPage">1</span> / <span class="totalPage">1</span>)</span>  ▼
+                                    </a>
+                                </div>
+                            </div>
+                            <!--FAQ- 적립금/쿠폰 tab 상품-->
+                            <div class="cs_tabContent2">
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">적립금/쿠폰</div>
+                                    <div class="qna_txt_right">​​<button class="notice_Slide5">
+                                        ​​헤이네이처에는 어떤 종류의 적립금들이 있나요?</button></div>
+                                </div>
+                                
+                                <div class="qna_contents_detail4" style="display: none;">
+                                    ⊙&nbsp;신규회원 적립금 : 첫 회원 가입 시 3000원의 적립금을 드립니다. 이 적립금은 상품 구매 시 바로 사용할 수 있습니다.<br><br>
+                                    ⊙&nbsp;상품 구매 적립금 : 회원 가입 후 제품을 구매하실 경우 등급에 따른 할인혜택이 주어집니다.<br>
+                                    (이벤트 상품 및 할인제품에는 적립금이 적립되지 않는 상품이 있을 수 있습니다.)<br>
+                                    (적립금/쿠폰으로 구매했을 경우 추가 적립금은 지급되지 않습니다.)<br><br>
+                                    ⊙&nbsp;사용후기 적립금 : 헤이네이처 제품을 사용하신 후 고객님께서 작성해 주시는 사용 후기는 더 좋은 제품 개발과 다른 고객님들의 상품 구매 시 알찬 도움이 됩니다.<br>
+                                    (텍스트 후기 500원, 포토후기 1,000원)
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">적립금/쿠폰</div>
+                                    <div class="qna_txt_right"><a href="">​​	
+                                        카톡 플친 쿠폰 다운이 안될 경우 어떻게 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">적립금/쿠폰</div>
+                                    <div class="qna_txt_right"><a href="">​                           	
+                                        카톡 플친은 어떻게 사용하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​적립금/쿠폰</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        적립금은 어디서 확인할 수 있나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">적립금/쿠폰</div>
+                                    <div class="qna_txt_right">​​<a href="">
+                                        적립금은 어떻게 사용하나요?</a></div>
+                                </div>
+                                <div class="cs_more_btn">
+                                    <a href="javascript:void(0);" class="cs_more">
+                                        더보기 <span>(<span class="currentPage">1</span> / <span class="totalPage">1</span>)</span>  ▼
+                                    </a>
+                                </div>
+                            </div>
+                            <!--FAQ- 배송관련 tab 상품-->
+                            <div class="cs_tabContent2">
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">배송관련</div>
+                                    <div class="qna_txt_right">​​<button class="notice_Slide6">
+                                        배송은 얼마나 걸리나요?</button></div>
+                                </div>
+                                
+                                <div class="qna_contents_detail5" style="display: none;">
+                                    당일 배송을 원칙으로 운영하고 있으며 주문 후 1~ 2일 내 지정하신 배송지로 제품을 받을 수 있습니다.
+                                    <br>(택배물량, 설, 추석연휴, 천재지변에 따라 4~5일 이상 지연될 수 있으니 양해 부탁드립니다.)
+                                    <br><br>
+                                    당일 주문 마감시간: 평일 오후 5시
+                                    <br><br>
+                                    *금요일 오후 5시 이후 주문/결제 건은 월요일에 출고됩니다.<br>
+                                    *택배업체: 로젠택배를 이용하여 배송하고 있습니다.<br>
+                                    *택배 물량 및 연휴 등으로 마감 시간이 변동될 수 있습니다.<br>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">배송관련</div>
+                                    <div class="qna_txt_right"><a href="">​​	
+                                        군부대나 해외배송이 가능한가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">배송관련</div>
+                                    <div class="qna_txt_right"><a href="">​​	
+                                        주소지, 연락처 오류로 반송처리가 되었다면?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​배송관련</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        배송비 부담은 어떻게 되나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">배송관련</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        배송현황을 확인하고 싶은데 어디서 가능할까요?</a></div>
+                                </div>
+                                <div class="cs_more_btn">
+                                    <a href="javascript:void(0);" class="cs_more">
+                                        더보기 <span>(<span class="currentPage">1</span> / <span class="totalPage">1</span>)</span>  ▼
+                                    </a>
+                                </div>
+                            </div>
+                            <!--FAQ- 교환환불반품 tab 상품-->
+                            <div class="cs_tabContent2">
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<button class="notice_Slide7">
+                                        반품/환불이 불가능한 사유는 무엇인가요?</button></div>
+                                </div>
+                                <div class="qna_contents_detail6" style="display: none;">
+                                    『 전자상거래 등에서의 소비자보호에 관한 법률 』에 따라 다음의 경우 반품 및 교환이 제한될 수 있습니다.<br><br>
+                                        ⊙&nbsp;구매자의 단순변심, 착오구매로 인한 교환/반품 요청이 상품을 수령한 날로부터 7일을 경과한 경우<br>
+                                        ⊙&nbsp;구매자의 책임사유로 상품 등이 멸실 또는 훼손된 경우<br>
+                                        ⊙&nbsp;포장이 훼손되어 상품 가치가 현저히 상실된 경우<br>
+                                        ⊙&nbsp;시간의 경과에 의해 재판매가 곤란할 정도로 상품가치가 현저히 감소한 경우<br>
+                                        ⊙&nbsp;기타 『 전자상거래 등에서의 소비자보호에 관한 법률 』이 정하는 청약철회 제한 사유에 해당되는 경우
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right"><a href="">​​	
+                                        환불은 어떻게 하나요?</a></div>
+                                </div>
+                                    <div class="qna_txt_wrap">
+                                        <div class="qna_txt_left">교환/반품/환불</div>
+                                        <div class="qna_txt_right"><a href="">​
+                                        제품 사용 후 피부 이상이 있는 경우는 어떻게 하나요?</a></div>
+                                    </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        취소 / 반품 전에 꼭 알아야 하는 내용은 무엇인가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        제품이 불량이에요 / 다른 제품이 왔어요.</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        제품을 받았는데 반품하고 싶어요.</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right"><a href="">​​	
+                                        환불은 어떻게 하나요?</a></div>
+                                </div>
+                                <!-- 2 -->
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right"><a href="">​
+                                        제품 사용 후 피부 이상이 있는 경우는 어떻게 하나요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">​​교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        취소 / 반품 전에 꼭 알아야 하는 내용은 무엇인가요?</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        제품이 불량이에요 / 다른 제품이 왔어요.</a></div>
+                                </div>
+                                <div class="qna_txt_wrap">
+                                    <div class="qna_txt_left">교환/반품/환불</div>
+                                    <div class="qna_txt_right">​​<a href="">	
+                                        제품을 받았는데 반품하고 싶어요.</a></div>
+                                </div>
+                                <div class="cs_more_btn">
+                                    <a href="javascript:void(0);" class="cs_more">
+                                        더보기 <span>(<span class="currentPage">1</span> / <span class="totalPage">1</span>)</span>  ▼
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       

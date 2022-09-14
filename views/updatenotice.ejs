@@ -1,0 +1,49 @@
+<ul id="kaTop">
+    <li onclick="getShowCT()"><a class="ka" id="ka" href="javascript:void(0);"></a></li>
+    <li><a class="top" id="top" href="javascript:void(0);"></a></li>
+</ul>
+<% if(typeof errs !== 'undefined'){ %>
+    <% errs.forEach(()=>{ %>
+        <h3><%= err.param %> : <%= errs.msg %></h3>
+    <% }) %>
+<% } %>
+<form class="w1200" method="POST" action="/updatenotice" style="padding-top: 100px; box-sizing: border-box;" onsubmit="return checkPw()">
+<div class="cs_tabContent" style="display:block">
+    <div class="cs_tabContentInner">
+        <div class="cs_box1">
+            <div class="ask_title">
+                <p class="h3 bold">공지사항 수정</p>
+            </div>
+            <div class="ask_title_wrap notipw">
+                <div class="ask_title">
+                    <input type="password" name="pw" id="pw">
+                    <span>비밀번호</span>
+                </div>
+            </div>
+            <input type="hidden" name="id" value="<%=row.id%>">
+            <div class="ask_title_wrap">
+                <div class="ask_box">
+                    <div class="ask_title2">
+                        <input type="text" name="title" id="title" value="<%=row.title%>">
+                        <span>제목</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ask_content_wrap">
+                <div class="ask_box">
+                    <div class="ask_content2">
+                        <textarea name="content" id="content"><%=row.content%></textarea>
+                        <span>내용</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ask_submit_wrap">
+                <div class="update_submit">
+                    <input type="submit" value="업데이트">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+

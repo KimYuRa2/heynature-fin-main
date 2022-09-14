@@ -1,0 +1,573 @@
+@font-face{
+    font-family: 'Circular-Std-Font2';
+    src:url('../fonts/CircularStd-Medium.woff') format('woff');
+}
+@font-face{
+    font-family: 'Circular-Std-Font-Bold';
+    src:url('../fonts/CircularStd-Bold.woff') format('woff');
+}
+
+
+/***** header (searchbox) :0615 - HEYNATURE >common.css로 옮김 ******/
+
+
+/************************ main ******************************/
+main{
+    position: relative;
+}
+
+body{
+    font-family:'Circular Std','Nanum Barun Gothic', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    background-color: #FFFEFC;
+}
+
+.w1200{
+    width:1200px;
+    box-sizing: border-box;
+}
+.product_sec{ 
+    padding-top : 200px;
+    margin:0 auto 0;
+}
+.product_sec>h3{
+    font-size:28px;
+    font-weight: bold;
+    text-align: center;
+    /* font-family: 'Circular-Std-Font'; */
+    font-family:'Circular Std';
+}
+.product_tabs{
+    margin-top: 36px;
+}
+.pro_tab1{
+    display:block;
+    text-align: center;
+}
+
+.pro_tab1>li{
+    display:inline-block;
+    padding:0 40px;
+}
+
+.pro_tab1>li>a{
+    display:block;
+    padding: 0 0 5px;
+    font-size: 18px;
+    color:#000;
+    position:relative;
+    font-weight: bold;
+    
+}
+.pro_tab1>li.pro_en>a{
+    font-family: 'Circular Std';
+}
+.ko{
+    font-family: 'Nanum Barun Gothic';
+}
+
+
+
+/* hover test */
+.pro_tab1>li a:hover{
+    /*메뉴 hover시 글씨색 천천히 */
+    color:#797878;
+    transition:all .7 ease;
+}
+
+
+.pro_tab1>li a:before {
+    content: '';
+    position: absolute; /*부모 요소에는 position: relative를 주어야 한다.*/
+    background-color: #797878;
+    height: 2px; /*밑줄 굵기*/
+
+    width: 0; /*초기에 보이지 않도록*/
+    bottom: 0; /*a태그 아래에 위치시키기*/
+    transition: 0.3s; /*애니메이션 동작 실행 시간 정의*/
+
+    /*가상 요소를 가운데로 이동시키기*/
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+
+/*태그가 호버링 되면 가상 요소의 크기를 100%로 키우기*/
+.pro_tab1>li a:hover:before {
+    width: 100%;
+}
+
+/* 메뉴 li 클릭 시 밑줄  */
+.pro_tab1>li.pro_active>a::after{
+    display:block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #000;
+}
+
+
+.tabContent{
+    overflow: hidden;
+    display:none;
+}
+
+.product_box1{
+    margin-top:80px;
+    width:100%;
+
+    font-size: 0;
+    letter-spacing: 0;
+    word-spacing: 0
+}
+.product_box2{
+    margin-top:36px;
+}
+.pro_tab2{
+    text-align: center;
+    /* display:none; */
+    margin-top:36px;
+    /* 스크롤바 */
+    /* overflow-x: scroll;
+    white-space: nowrap; */
+}
+.pro_tab2::-webkit-scrollbar{
+    /* 전체화면 스크롤바 투명하게 */
+    /* display:none; */
+}
+.pro_tab2_selected{
+    display:block;/********/
+}
+.pro_tab2>li{
+    display: inline-block;
+    padding: 0.4em 1em;
+}
+.pro_tab1>li.pro_active>a{
+    font-weight: bold;
+}
+.pro_tab2>li>a{
+    color: #9b9b9b;
+    font-size: 16px;
+    line-height: 18px;
+} 
+.pro_tab2>li>a:hover{
+    color: #6d6c6c;
+    transition: 0.3s;
+} 
+.pro_tab2>li.pro_active>a{
+    font-size:16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.tabContent2{
+    width:100%;
+    margin-top:80px;
+    display:none;
+
+    
+    font-size: 0;
+    letter-spacing: 0;
+    word-spacing: 0;
+}
+/* .selected{
+    display:flex;
+} */
+.tabContent figure{
+    width:25%;
+    padding: 0 15px 80px;
+    box-sizing: border-box;
+    display: inline-block;
+    
+
+    /* background-color: #9CCB44; */
+}
+.tabContent figure>a{
+    display:block;
+    width:100%;
+    overflow: hidden;
+}
+.product_img{
+    position:relative;
+    width:100%;
+    padding-top:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #f5f5f5;
+}
+.product_img:hover{
+    transform: scale(1.05);
+    transition : transform .6s ease-in-out;
+}
+.overlay {
+    /* display: none;
+    z-index: 2;
+    position:absolute;
+    top:0;
+    right:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0, 0.4);
+    overflow-x: hidden; */
+}
+
+.tabContent figcaption{
+    /* display:block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    margin-top:30px;
+    color: #000;
+}
+.tabContent figcaption>h3{
+    font-size: 12px;
+    line-height: 22px;
+    
+    font-family: 'Nanum Barun Gothic';
+}
+.tabContent figcaption>h4{
+    /* margin-top:2px; */
+    font-weight: bold;
+    font-size:14px;
+    line-height: 20px;
+    font-family: 'Circular-Std-Font-Bold';
+}
+.tabContent figure>div{
+    margin-top:20px;
+    font-size: 15px;
+}
+.price{
+    text-decoration: line-through;
+    margin-right: 5px;
+    color:#969696;
+}
+.dc_price{
+    font-weight: bold;
+    color:#9CCB44;
+}
+.more_btn{
+    width:175px;
+    height:40px;
+    border : 1px solid #DBDBDB;
+    margin: auto;
+    margin-bottom: 90px;
+    box-sizing: border-box;
+    text-align: center;
+    display:block;
+
+}
+.more_btn>a{
+    display:block;
+    width:100%;
+    height:100%;
+    color: #000;
+    line-height: 40px;
+    font-size: 13px;
+    font-family: 'Nanum Barun Gothic';
+}
+.more_btn>a>span{
+    font-size : 11px;
+}
+.pro_active{
+    display:block;
+}
+
+
+/* 상품 이미지 */
+.img1{
+    background-image: url(../img/kim/1.png);
+}
+.img2{
+    background-image: url(../img/kim/2.png);
+}
+.img3{
+    background-image: url(../img/kim/3.png);
+}
+.img4{
+    background-image: url(../img/kim/4.png);
+}
+.img5{
+    background-image: url(../img/kim/5.png);
+}
+.img6{
+    background-image: url(../img/kim/6.png);
+}
+.img7{
+    background-image: url(../img/kim/7.png);
+}
+.img8{
+    background-image: url(../img/kim/8.png);
+}
+.img9{
+    background-image: url(../img/kim/9.png);
+}
+.img10{
+    background-image: url(../img/kim/10.png);
+}
+.img11{
+    background-image: url(../img/kim/11.png);
+}
+.img12{
+    background-image: url(../img/kim/12.png);
+}
+.img13{
+    background-image: url(../img/kim/13.png);
+}
+.img14{
+    background-image: url(../img/kim/14.png);
+}
+.img15{
+    background-image: url(../img/kim/15.png);
+}
+.img16{
+    background-image: url(../img/kim/16.png);
+}
+.img17{
+    background-image: url(../img/kim/17.png);
+}
+.img18{
+    background-image: url(../img/kim/18.png);
+}
+.img19{
+    background-image: url(../img/kim/19.png);
+}
+.img20{
+    background-image: url(../img/kim/20.png);
+}
+.img21{
+    background-image: url(../img/kim/21.png);
+}
+.img22{
+    background-image: url(../img/kim/22.png);
+}
+.img23{
+    background-image: url(../img/kim/23.png);
+}
+.img24{
+    background-image: url(../img/kim/24.png);
+}
+.img25{
+    background-image: url(../img/kim/25.png);
+}
+.img26{
+    background-image: url(../img/kim/26.png);
+}
+.img27{
+    background-image: url(../img/kim/27.png);
+}
+.img28{
+    background-image: url(../img/kim/28.png);
+}
+.img29{
+    background-image: url(../img/kim/29.png);
+}
+.img30{
+    background-image: url(../img/kim/30.png);
+}
+.img31{
+    background-image: url(../img/kim/31.png);
+}
+.img32{
+    background-image: url(../img/kim/32.png);
+}
+
+.img33{
+    background-image: url(../img/kim/33.png);
+}
+
+.img34{
+    background-image: url(../img/kim/34.png);
+}
+
+.img35{
+    background-image: url(../img/kim/35.png);
+}
+
+.img36{
+    background-image: url(../img/kim/36.png);
+}
+
+.img37{
+    background-image: url(../img/kim/37.png);
+}
+
+.img38{
+    background-image: url(../img/kim/38.png);
+}
+
+.img39{
+    background-image: url(../img/kim/39.png);
+}
+
+.img40{
+    background-image: url(../img/kim/40.png);
+}
+
+.img41{
+    background-image: url(../img/kim/41.png);
+}
+
+.img42{
+    background-image: url(../img/kim/42.png);
+}
+
+.img43{
+    background-image: url(../img/kim/43.png);
+}
+
+.img44{
+    background-image: url(../img/kim/44.png);
+}
+
+.img45{
+    background-image: url(../img/kim/45.png);
+}
+
+.img46{
+    background-image: url(../img/kim/46.png);
+}
+
+.img47{
+    background-image: url(../img/kim/47.png);
+}
+
+.img48{
+    background-image: url(../img/kim/48.png);
+}
+
+.img49{
+    background-image: url(../img/kim/49.png);
+}
+
+.img50{
+    background-image: url(../img/kim/50.png);
+}
+.img51{
+    background-image: url(../img/kim/51.png);
+}
+.img52{ /*어성초 보습 크림*/
+    background-image: url(../img/kim/52.png);
+}
+.pro_en{
+    font-family: 'Circular Std';
+}
+.rank_txt{
+    width:30px;
+    height:30px;
+    position:absolute;
+    left: 0;
+    top:0;
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    opacity: 0.8;
+    color: #222;
+}
+.rank1{
+    color: #fff;
+    background-color: #222;
+    opacity: 1;
+}
+
+
+
+@media only screen and (max-width: 1284px) {
+    .w1200{
+        width:100%;
+        /* padding: 0 30px; */
+    }
+    .product_sec{ 
+        /*padding-top : 150px;*/
+        /* margin:200px auto 0;150+51=201 */
+        /* font-family: 'Circular-Std-Font'; */
+    }
+
+    
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .w1200{
+        width:100%;
+        /* padding: 0 50px; */
+    }
+    .tabContent figure{
+        width:33.33%;
+    }
+    
+
+    .pro_tab1{
+        /*스크롤바*/
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+    .pro_tab1::-webkit-scrollbar{
+        /* 전체화면 스크롤바 투명하게 */
+        /* display:none; */
+    }
+    .pro_tab2{
+        /* 스크롤바 */
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+    .pro_tab2::-webkit-scrollbar{
+        /* 전체화면 스크롤바 투명하게 */
+        /* display:none; */
+    }
+    
+    #input{
+        /*검색창 최종*/
+        font-size : 14px;
+        width: 25%;
+
+    }
+    
+    
+}
+@media only screen and (max-width: 768px) {
+    .w1200{
+        /* padding: 0 20px; */
+    }
+    .product_sec{ 
+        /*padding-top : 150px;*/
+        /* margin: 195px auto 0;150+51=201 */
+        /* font-family: 'Circular-Std-Font'; */
+    }
+    .product_sec>h3{
+        font-size : 22px;
+    }
+    .pro_tab1>li{
+        padding:0 40px;
+    }
+    .pro_tab1>li>a{
+        font-size : 16px;
+    }
+    .pro_tab1>li.pro_en>a{
+        font-size : 16px;
+        font-family: 'Circular Std';
+    }
+    .pro_tab2>li>a{
+        line-height: 15px;
+    } 
+    .tabContent figure{
+        width:50%;
+    }
+    #input{
+        /*검색창 최종*/
+        font-size : 14px;
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .pro_tab1>li{
+        padding:0 30px;
+    }
+}

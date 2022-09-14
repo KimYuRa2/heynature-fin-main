@@ -1,0 +1,320 @@
+@font-face{
+    font-family: 'Circular-Std-Font2';
+    src:url('../fonts/CircularStd-Medium.woff') format('woff');
+}
+@font-face{
+    font-family: 'Circular-Std-Font-Bold';
+    src:url('../fonts/CircularStd-Bold.woff') format('woff');
+}
+
+
+.ch{
+    width:370px;
+    height:680px;
+    background-color: #e1e9de;
+    border-radius: 40px;
+
+    position: fixed;
+    bottom:25px;
+    right:25px;
+    z-index:10;
+    display:none;
+}
+.ch_header{
+    position:relative;
+    padding: 17px 22px 0px;
+}
+.ch_title_wrap{
+    display:flex;
+}
+.ch_t_logo{
+    width:30px;
+    height:30px;
+    background-image: url(../img/kim/hlogo.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.ch_title_wrap>h4{
+    font-size: 22px;
+    margin-left: 8px;
+}
+.ch_setting_btn{
+    position:absolute;
+    top: 18px;
+    right: 55px;
+    width: 36px;
+    height: 36px;
+    padding: 0px;
+    cursor: pointer;
+    opacity: 1;
+    /*setting_btn_img를 가운데정렬*/
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.setting_btn_img{
+    width:20px;
+    height: 20px;
+    background-image: url(../img/kim/setting_3.png);
+    background-size:contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display:inline-block;
+}
+.setting_btn_img>a{
+    width:100%;
+    height:100%;
+    display:inline-block;
+}
+.ch_close_btn{
+    position: absolute;
+    top: 18px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 13px;
+    opacity: 1;
+     /*close_btn_img를 가운데정렬*/
+     display:flex;
+     align-items: center;
+     justify-content: center;
+}
+.close_btn_img{
+    width:20px;
+    height: 20px;
+    background-image: url(../img/kim/icon-close-close-door-icon-with-png-and-vector-format-for-free-646021.png);
+    background-size:contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display:inline-block;
+}
+.close_btn_img>a{
+    width:100%;
+    height:100%;
+    display:inline-block;
+}
+/* 상담목록 */
+.ch_list{
+    position: relative;
+    margin: 20px auto 0;
+    width:342px;
+    height:190px;
+    background-color: white;
+    border-radius: 30px;
+}
+.list_top_bar{
+    width:184px;
+    height:12px;
+    margin: auto;
+    background-color: #D9D9D9;
+}
+.list_title_wrap{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    position:relative;
+    font-family:  'Nanum Barun Gothic';
+}
+.list_title{
+    color: rgba(0, 0, 0, 0.5);
+}
+.read_all_icon{
+    position: absolute;
+    right:65px;
+    width:16px;
+    height: 16px;
+    background-image: url(../img/kim/output-onlinepngtools.png);
+    background-size: cover;
+    background-position: center;
+}
+.read_all{
+    color: #000;
+}
+.ch_list_content{
+    margin-top: 15px;
+}
+.list_content1{
+    width:100%;
+    position: relative;
+    padding: 5px 50px;
+    box-sizing: border-box;
+}
+.list_content1>a{
+    color:#000;
+}
+.content1{
+   /* background-color: #D9D9D9;*/
+
+}
+
+.list_logo{
+    width:30px;
+    height:30px;
+    position:absolute;
+    top:10px;
+    left:10px;
+
+    background-image: url(../img/kim/hlogo.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+h6{
+    font-size: 12px;
+}
+.content_txt{
+    font-size: 12px;
+    display: inline-block;
+}
+.content_txt span{
+    font-family: 'Nanum Barun Gothic';
+}
+.content_txt p{
+    font-family: 'Nanum Barun Gothic';
+}
+.list_enter_wrap{
+    position:absolute;
+    top: 15px;
+    right: 10px;
+    width:60px;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.list_message_icon{
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #DDE6DA;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 5px;
+    font-family:'Nanum Barun Gothic';
+}
+.list_enter_btn{
+    background-image: url(../img/kim/output-onlinepngtools_arrow.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:20px;
+    height: 20px;
+}
+
+/* 새 문의하기*/
+.ch_list2{
+    height:180px;
+}
+.new_chat{
+    /* padding-top:20px; */
+}
+.h6_box{
+    width:100%;
+    height:30px;
+    display:flex;
+    align-items: center;
+}
+.new_chat_logo{
+    /* top:25px; */
+    top:7px;
+}
+.new_chat_btn{
+    width:95%;
+    height:46px;
+    margin:auto;
+    background-color: #D9D9D9;
+    margin-top: 18px;
+    
+    font-size: 12px;
+    border-radius: 30px;
+}
+.new_chat_btn>a{
+    width:100%;
+    height:100%;
+    display:block;
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:#000;
+}
+.new_chat_btn span{
+    margin-left: 5px;
+    font-family: 'Nanum Barun Gothic';
+}
+.operating_hour{
+    width:100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.info_icon{
+    width:14px;
+    height:14px;
+    background-image: url(../img/kim/information_77957.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+.operating_hour>h6{
+    display: inline-block;
+    font-family: 'Nanum Barun Gothic';
+}
+
+.ch_list3{
+    height:60px;
+    display: flex;
+    justify-content: space-between;
+    padding:0 10px 0 10px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.ch_list>h6{
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 60px;
+    display: inline-block;
+    font-family: 'Nanum Barun Gothic';
+}
+.call_icon{
+    width:36px;
+    height:36px;
+    background-color:#D9D9D9;
+    border-radius: 50%;
+    display: inline-block;
+
+}
+.call_icon>a{
+    width:100%;
+    height:100%;
+    display:block;
+    background-image: url(../img/kim/phone_icon_136322.png);
+    background-position: center center;
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+}
+
+.ch_list4{
+    text-align: center;
+    margin:20px;
+}
+
+.list4_icon{
+    background-image:url(../img/kim/chat_talk_conversation_sms_bubble_icon-icons.com_59983.png);
+    width:17px;
+    height:17px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display:inline-block;
+    opacity: 0.4;
+}
+.ch_list4>h6{
+    display:inline-block;
+    font-family: 'Nanum Barun Gothic';
+}

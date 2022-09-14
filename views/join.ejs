@@ -1,0 +1,95 @@
+        <ul id="kaTop">
+            <li onclick="getShowCT()"><a class="ka" id="ka" href="javascript:void(0);"></a></li>
+            <li><a class="top" id="top" href="javascript:void(0);"></a></li>
+        </ul>
+        <section class="w1200 join_wrap">
+            <div class="join_title_wrap">
+                <h2>JOIN</h2>
+                <!--
+                <p><strong>카카오톡 계정</strong>을 이용한 회원가입은 
+                    <a href=""><span>로그인(login)</span></a>페이지에서 하실 수 있습니다.
+                </p>
+                -->
+            </div>
+
+
+            <div id='form-container'>
+
+                <h5 class="info_line">LOGIN INFORMATION</h5>  
+
+                <fieldset>
+                <label>아이디<span>*</span></label>
+                <input type="text" id='username' placeholder="아이디를 입력해주세요.">
+                <div class='failure-message hide msg'>4자 이상의 영문 혹은 영문과 숫자를 조합</div>
+                <div class='success-message hide msg success'>사용할 수 있는 아이디입니다.</div>
+                </fieldset>
+
+                <fieldset>
+                <label>비밀번호<span>*</span></label>
+                <input type="password" id='password' placeholder="비밀번호를 입력해주세요.">
+                <div class='password-message-wrap'>
+                    <span class='password-failure-length hide msg'>10자 이상 입력</span>
+                    <span class='password-failure-comb hide msg'>영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합</span>
+                    <span class='password-failure-contn hide msg'>동일한 숫자 3개 이상 연속 사용 불가</span>
+                    <span class='password-failure-upper hide msg'>영어 대문자 하나 이상 포함</span>
+                    <span class='password-success-message hide msg success'>사용할 수 있는 비밀번호입니다.</span>
+                </div>
+                </fieldset>
+
+                <fieldset>
+                <label>비밀번호 확인<span>*</span></label>
+                <input type="password" id='password-retype' placeholder="비밀번호를 한번 더 입력해주세요.">
+                <div class="mismatch-message hide msg">동일한 비밀번호를 입력해주세요.</div>
+                <div class="match-message hide msg success">동일한 비밀번호가 입력되었습니다.</div>
+                </fieldset>
+
+
+                <h5 class="info_line per_line">PERSONAL INFORMATION</h5>
+
+                <fieldset>
+                <label>이름<span></span></label>
+                <input type="text" id='name' placeholder="이름을 입력해주세요">
+                <div class="mismatch-message hide msg">이름을 입력해주세요.</div>
+                </fieldset>
+
+                <fieldset class="post">
+                <label>우편번호<span></span></label>
+                <input type="text" id='' placeholder="">
+                <span>
+                    <label>&nbsp;</label>
+                    <div class="post_btn"><button>POSTAL CODE</button></div>
+                </span>
+                </fieldset>
+
+                <fieldset>
+                    <label>기본주소<span></span></label>
+                    <input type="text" id='' placeholder="">
+                </fieldset>
+
+                <fieldset>
+                    <label>나머지주소<span></span></label>
+                    <input type="text" id='' placeholder="">
+                </fieldset>
+
+                <fieldset class="post">
+                    <label>휴대폰번호<span></span></label>
+                    <div class="m_number">
+                    <input type="text" id='' placeholder="" value="010">
+                    <input type="text" id='' placeholder="">
+                    <input type="text" id='' placeholder="">
+                    </div>
+                    <span>
+                        <label>&nbsp;</label>
+                        <div class="post_btn"><button>인증하기</button></div>
+                    </span>
+                    </fieldset>
+
+
+                <div class="btn_join">
+                    <a href="/"><button id="subit-button">회원가입</button></a>
+                </div>
+            </div>
+        </section>
+        <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="js/join.js"></script> -->
+  

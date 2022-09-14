@@ -12,7 +12,7 @@ const moment = require('moment'); // 날짜 포멧을 위한 모듈
 //     dateStrings:'date'
 // })
 
-/* heynature-local */
+/* (local) heynature-local */
 var connection = mysql.createConnection({
     host: 'localhost',
     port: '3306',

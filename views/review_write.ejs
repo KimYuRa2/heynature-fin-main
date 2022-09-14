@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/reset.css">
+    <link rel="stylesheet" href="../public/css/detail.css">
+</head>
+<body>
+    
+
+    <% if(typeof errs !== 'undefined'){ %>
+        <% errs.forEach(()=>{ %>
+            <h3><%= err.param %> : <%= errs.msg %></h3>
+        <% }) %>
+    <% } %>
+
+    <form class="w1200" method="POST" action="/store2">
+        <div class="review_write_wrap disnone" id="myModal">
+            <div class="review_write_title_wrap">
+                <div class="review_write_title">
+                    <img src="../img/lee/product_icon-xxhdpi.png">
+                    <span>상품 품질 리뷰</span>
+                </div>
+                <div class="review_write_title2">
+                    <p>이 상품의 품질에 대해서 얼마나 만족하시나요?</p>
+                </div>
+            </div>
+            <div class="review_rating">
+                <div class="review_rating_left">
+                    <img src="../img/lee/2.png">
+                </div>
+                <div class="review_rating_right">
+                    <div class="review_rating_right_title">헤이네이처 어성초 로션 100ml</div>
+                    <!-- <div class="review_rating_right_stars">
+                        <button class="mystar" value="1" type="button"></button>
+                        <button class="mystar" value="2" type="button"></button>
+                        <button class="mystar" value="3" type="button"></button>
+                        <button class="mystar" value="4" type="button"></button>
+                        <button class="mystar" value="5" type="button"></button>
+                    </div> -->
+
+                    <div class="starRev">
+                        <span class="starR on">별1</span>
+                        <span class="starR">별2</span>
+                        <span class="starR">별3</span>
+                        <span class="starR">별4</span>
+                        <span class="starR">별5</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="review_writing">
+                <div class="review_writing_left">상세리뷰</div>
+                <div class="review_writing_right">
+                    <div class="review_writing_content">
+                        <textarea name="content" id="content" placeholder="상품 품질에 대한 고객님의 솔직한 리뷰를 남겨주세요."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="review_attach">
+                <div class="review_attach_left">사진첨부</div>
+                <div class="ask_attach_file">
+                    <div class="insert">
+                        <!-- <form id="btn_total" name="insertf" action="insertf" method="post" enctype="multipart/form-data"> -->
+                            <label for="myFile">+ 추가</label>
+                            <input type='file' id="myFile" name='' multiple/>
+                            <div id="showFiles"></div>
+                        <!-- </form> -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="review_btn">
+                <button type="submit" class="submit_btn">등록하기</button>
+                <button class="cancel_btn">취소하기</button>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/channeltalk.css">
+    <link rel="stylesheet" href="../css/cscenter.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/event.css">
+    <link rel="stylesheet" href="../css/intro.css">
+    <link rel="stylesheet" href="../css/join.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/find.css">
+    <link rel="stylesheet" href="../css/product.css">
+
+    <!--폰트-->
+    <link href="http://fonts.cdnfonts.com/css/circular-std" rel="stylesheet">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet">
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'></script>
+
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+  
+
+</head>
+
+<body>
+    <header>
+        <!-- 배너 -->
+        <div class="banner" id="banner">
+            <a href="event">3차 재입고 어성초 마스크 5+5</a>
+            <a onclick="bannerX()" href="javascript:void(0)">x</a>
+        </div>
+        
+        <!-- 메뉴 -->
+        <div id="mySidedark"></div>
+        <div id="mySidenav" class="sidenav">
+          <a href="/" class="sidehome"><img src="img/park/home.png"></a>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="intro">BRAND</a>
+          <a href="product">SHOP</a>
+          <a href="event">EVENT</a>
+          <a href="cscenter">CS CENTER</a>
+          <ul class="menu_im">
+            <li><a class="myinfo" href="login"></a></li>
+            <li><a class="mycart" href=""><span>0</span></a></li>
+          </ui>
+        </div>
+
+        <div id="main">
+            <div class="logo"><a href="/"></a></div>
+
+           <!-- 검색창 -->
+            <div class="searchbar">
+                <input id="input" type="text" placeholder="Type here to search">
+            </div>
+            <!-- 검색/메뉴 아이콘 -->
+            <div class="right_btn_wrap">
+                <div class="search_show" id="search_icon" onclick="getShowSearchbar()">
+                    <!-- href="javascript:void(0);" => <a>태그에서 웹페이지 이동 이벤트 막기 -->
+                    <a id="search_i" href="javascript:void(0);"></a>
+                </div>
+                <div class="search_hide" id="X_icon" onclick="getHideSearchbar()">
+                    <a id="X_i" href="javascript:void(0);"></a>
+                </div>
+                <span class="nav_menu" id="nav_menu" onclick="openNav()"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <%- body %>
+        <!--ejs사용법-->
+    </main>
+
+    <footer class="panel panel7 " data-section-name="INFORMATION">
+        <div class="f_notice">
+            <span><a href="">공지사항</a></span>
+            <b><a href="">2022 5/5 휴무 안내</a></b>
+        </div>
+        <div class="f_border"></div>
+        <div class="f_inner">
+            <div class="f_logo"></div>
+            <div class="f_contents">
+                <div class="f_contp">
+                    <p>상호: 주식회사 헤이네이처 | 대표: 하은영 | 사업자등록번호: 119-87-04086 [사업자정보확인]</p>
+                    <p>주소: 서울 금천구 가산동 대성디폴리스지식산업센터 A동 지하 1층 116호</p>
+                    <p>개인정보 정책 및 담당: 서희경 | 통신판매업신고번호 : 2015-서울금천-0492호</p>       
+                    <span>
+                        <a href="cscenter">CS Center</a>
+                        <a href="cscenter">NOTICE</a>
+                        <a href="cscenter">Q&A</a>
+                        <!-- <a href="cscenter">REVIEW</a> -->
+                        <a href="cscenter">FAQ</a>
+                    </span>
+                    <p> 모든 컨텐츠는 무단으로 복제하거나 재판매를 금지합니다. copyright © by Heynature All Right Reserved</p>   
+                </div>
+                <ul>
+                    <li><a class="in_icon" href="https://www.instagram.com/heynature.official/" target="_blank"></a></li>
+                    <li><a class="fb_icon" href="https://ko-kr.facebook.com/HeynatureKorea/" target="_blank"></a></li>
+                    <li><a class="yt_icon" href="https://www.youtube.com/channel/UC8jjeJ8XDpU4s74NXnS1WOA" target="_blank"></a></li>
+                </ul>
+            </div>
+
+        </div>
+        
+    <!-- 채널톡 -->
+    <div class="ch" id="ch">
+        <!--헤더-->
+        <div class="ch_header">
+            <div class="ch_title_wrap">
+                <div class="ch_t_logo">
+                </div>
+                <h4>Heynature</h4>
+            </div>
+            
+            <!--상단버튼-->
+            <div class="ch_setting_btn">
+                <div class="setting_btn_img"><a href="javascript:void(0);"></a></div>
+            </div>
+            <div class="ch_close_btn" onclick="getHideCT()">
+                <div class="close_btn_img"><a href="javascript:void(0);"></a></div>
+            </div>
+        </div>
+
+        <!--상담목록-->
+        <div class="ch_list">
+            <div class="list_top_bar"></div>
+
+            <div class="list_title_wrap">
+                <div class="list_title">상담목록</div>
+                <div class="list_read_all">
+                    <a href="">
+                        <div class="read_all_icon"></div>
+                        <div class="read_all">전체읽기</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="ch_list_content">
+                <div class="list_content1">
+                    <a href="">
+                        <div class="list_logo"></div>
+                        <div class="content1">
+                            <h6>Heynature</h6>
+                            <div class="content_txt">
+                                <img src="img/kim/cong.jpg" width="18px" height="18px">
+                                <span>단 3일간 5,000원 추가 할인</span>
+                                <img src="img/kim/cong.jpg" width="18px" height="18px">
+                            </div>
+                        </div>
+                        <div class="list_enter_wrap">
+                            <div class="list_message_icon">1</div>
+                            <div class="list_enter_btn"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="list_content1">
+                    <a href="">
+                        <div class="list_logo"></div>
+                        <div class="content1">
+                            <h6>Heynature</h6>
+                            <div class="content_txt">
+                                <span>5/17(화) 오늘 단 하루! </span>
+                                <img src="img/kim/istockphoto-1125716911-170667a.jpg" width="18px" height="18px">
+                            </div>
+                        </div>
+                        <div class="list_enter_wrap">
+                            <div class="list_message_icon">1</div>
+                            <div class="list_enter_btn"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--새 문의하기-->
+        <div class="ch_list ch_list2">
+            <div class="ch_list_content">
+                <div class="list_content1 new_chat">
+                    <div class="list_logo new_chat_logo"></div>
+                    <div class="h6_box">
+                        <h6>Heynature</h6>
+                    </div>
+                    
+                    <div class="content1">
+                        
+                        <div class="content_txt">
+                            <p>고객님 안녕하세요.</p>
+                            <p>Heynature입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="new_chat_btn">
+                <a href="">
+                    <div class="send_img">
+                        <img src="/img/kim/send-button-371579.png" width="15px" height="20px">
+                    </div>
+                    <span>새 문의하기</span>
+                </a>
+            </div>
+
+            <div class="operating_hour">
+                <div class="info_icon"></div>
+                <h6>운영시간 아님</h6>
+            </div>
+        </div>
+
+        <!--다른방법으로 상담-->
+        <div class="ch_list ch_list3">
+            <h6>다른 방법으로 상담</h6>
+            <div class="call_icon">
+                <a href=""></a>
+            </div>
+        </div>
+
+        <!--채널톡 이용중-->
+        <div class="ch_list4">
+            <div class="list4_icon"></div>
+            <h6>채널톡 이용중</h6>
+        </div>
+    </div>
+
+    </footer>
+
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- 한페이지씩 내려가는거 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.min.js"></script>
+    <!-- 한페이지씩 천천히 내려가는거 -->
+    <script src="js/main.js"></script>
+<!---->
+
+
+<script src="js/common.js"></script>
+<script src="js/cscenter.js"></script>
+<script src="js/event.js"></script>
+<script src="js/product_detail.js"></script>
+<script src="js/find.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/join.js"></script>
+<script src="js/product.js"></script>
+<script src="js/channeltalk.js"></script>
+
+</body>
+</html>

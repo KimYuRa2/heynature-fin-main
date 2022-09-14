@@ -1,0 +1,436 @@
+
+body * {
+    font-family: 'NanumBarunGothic','Circular-Std-Font';
+}
+body {
+    background-color: #FFFEFC;
+    position: relative;
+}
+.dis {
+    display: none;
+}
+main {
+    margin: auto;
+}
+.w1200 {
+    width: 1200px;
+}
+.rol_stop {
+    overflow: hidden; 
+}
+.menu_im a {
+    box-sizing: border-box;
+}
+
+/***menu tab***/
+.event_title_wrap {
+    padding-top: 200px;
+}
+.event_title_wrap>h3{
+    font-size:28px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Circular-Std-Font';
+}
+
+.e_tab1{
+    display:block;
+    text-align: center;
+    /* 스크롤바 */
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin: 36px auto 0;
+}
+.e_tab1::-webkit-scrollbar{
+    /* 스크롤바 투명하게 */
+    display:none;
+}
+.e_tab1>li{
+    display:inline-block;
+    padding:0 70px;
+}
+
+.e_tab1>li>a{
+    display:block;
+    padding: 0 0 5px;
+    font-size: 18px;
+    color:#000;
+    position:relative;
+    font-weight: bold;
+    font-family: 'Circular-Std-Font';
+}
+
+/* hover test */
+.e_tab1>li a:hover{
+    /*메뉴 hover시 글씨색 천천히 */
+    color:#797878;
+    transition:all .7 ease;
+}
+
+
+.e_tab1>li a:before {
+    content: '';
+    position: absolute; /*부모 요소에는 position: relative를 주어야 한다.*/
+    background-color: #797878;
+    height: 2px; /*밑줄 굵기*/
+
+    width: 0; /*초기에 보이지 않도록*/
+    bottom: 0; /*a태그 아래에 위치시키기*/
+    transition: 0.3s; /*애니메이션 동작 실행 시간 정의*/
+
+    /*가상 요소를 가운데로 이동시키기*/
+    left: 50%;
+    transform: translateX(-50%) ;
+}
+
+/*태그가 호버링 되면 가상 요소의 크기를 100%로 키우기*/
+.e_tab1>li a:hover:before {
+    width: 100%;
+}
+.e_tab1>li.active>a::after{
+    display:block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #000;
+}
+
+
+/***section1***/
+.event_sec1 {
+    padding-top: 80px;
+    padding-bottom: 170px;
+}
+.event_sec1 * {
+    font-family: 'NanumBarunGothic';
+}
+.event_sec1 ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.event_sec1 li {
+    display: block;
+    width: calc((100% - 60px)/3); 
+    overflow: hidden;
+    position: relative;
+}
+.event_oning {
+    cursor: pointer;
+    margin-bottom: 80px;
+}
+.event_sec1 li .period {
+    padding: 7px 12px;
+    background-color: #222;
+    font-size: 11px;
+    text-align: center;
+    display: inline;
+    color: #fff;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+}
+.event_oning>div:first-child {
+    padding-bottom: 100%;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.event_oning>div:first-child>div {
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+.event_oning>div:first-child>div:hover {
+    transform: scale(1.05);
+    transition: transform 0.6s ease-in-out;
+}
+.event_oning h3 {
+    color: #000;
+    font-size: 16px;
+    margin-top: 8px;
+    font-family: 'Circular-Std-Font';
+}
+.event_oning h3>p {
+    font-weight: normal;
+    font-size: 12px;
+    margin-top: 3px;
+}
+.event_img1 {
+    background: url(../img/oh/event/event4.jpg) no-repeat center center;
+}
+.event_img2 {
+    background: url(../img/oh/event/event2.PNG) no-repeat center center;
+}
+.event_img3 {
+    background: url(../img/oh/event/event3.jpg) no-repeat center center;
+}
+.event_img4 {
+    background: url(../img/oh/event/event1.jpg) no-repeat center center;
+}
+.event_img5 {
+    background: url(../img/oh/event/event5.jpg) no-repeat center center;
+}
+.event_img6 {
+    background: url(../img/oh/event/event6.jpg) no-repeat center center;
+}
+.black_bg {
+    background-color: black;
+}
+.black_bg>div {
+    background-size: cover;
+    padding-bottom: 100%;
+    opacity: 50%;
+}
+.event_end{
+    position: relative;
+}
+.event_end h3 {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    width: 100%;
+    font-weight: bold;
+
+}
+
+
+
+/***event box click***/
+.event_box_wrap {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    z-index: 1000;
+}
+.ev_box {
+    position: fixed;
+    width: 60%;
+    max-width: 600px;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    background-color: #e1e9de;
+    transform: translate(-50%, -50%);
+    /* "delay" the visibility transition */
+    -webkit-transition: opacity .5s, visibility 0s linear .5s;
+    transition: opacity .5s, visibility 0s linear .5s;   
+
+}
+.title_box {
+    width: 100%;
+    padding: 15px 20px;
+    padding-right: 50px;
+    box-sizing: border-box;
+}
+.title_box>h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+}
+.title_box>p {
+    font-size: 12px;
+    color: #222;
+    font-family: 'NanumBarunGothic';
+}
+.event_box_wrap>.ev_box>.close {
+    position: relative;
+    top: 10px;
+    right: 5px;
+    color: #222;
+    font-size: 25px;
+    float: right;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .con_box {
+      width: 100%;
+      height: 750px;
+      padding: 20px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      box-sizing: border-box;
+      background-color: #FFFEFC;
+  }
+  .ev_notice {
+      height: 720px;
+      overflow: auto;
+      margin-top: -5px;
+  }
+  .ev_notice>img {
+    width: 100%;
+    object-fit:cover;
+  }
+  .ev_notice::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
+
+
+
+
+
+
+  /***mini chat***/
+.ka_top{
+    position:fixed;
+    bottom:45px;
+    right:45px;    
+    z-index: 5;
+}
+.ka_top a{
+    display:block;
+    width:50px;
+    height:50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+.ka{
+    background-image: url(../img/oh/ka.png);
+}
+.top{
+    margin-top:5px;
+    background-image: url(../img/oh/top.png);
+}
+
+
+
+
+  @media only screen and (max-width: 1284px) {
+    .w1200 {
+        width: 100%;
+        padding:0 30px;
+        box-sizing: border-box;
+    }       
+    .event_sec1 li {
+        display: block;
+        width: calc((100% - 60px)/3); 
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+  }
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+    .w1200 {
+        width: 100%;
+        padding:0 50px;
+        box-sizing: border-box;
+    }
+    .event_oning h3 {
+        font-size: 14px;
+    }
+    .event_oning a :hover ~h3 {
+        transition: all 0.3s;
+        font-size: 16px;
+    }
+    .event_end h3 {
+        font-size: 14px;
+    }
+
+
+    
+    .ev_box {
+        width: 60%;
+        max-width: 600px;
+    }
+    .con_box {
+        width: 100%;
+        height: 640px;
+        padding: 20px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-sizing: border-box;
+        background-color: #FFFEFC;
+    }
+    .ev_notice {
+        height: 600px;
+        overflow: auto;
+        margin-top: -5px;
+    }
+
+
+/********MAX-WIDTH 1200PX*******/
+  }
+
+  @media only screen and (max-width: 768px) {
+    .w1200 {
+        width: 100%;
+        padding:0 20px;
+        box-sizing: border-box;
+    } 
+    .e_tab1>li>a {
+        font-size: 16px;
+    }
+    .event_oning h3 {
+        font-size: 13px;
+    }
+    .event_oning a :hover{
+        opacity: 100%;
+    }
+    .event_oning a :hover ~h3 {
+        transition: none;
+        font-size: 13px;
+    }
+    .event_end h3 {
+        font-size: 13px;
+    }
+    .event_sec1 li {
+        width: calc(50% - 15px);
+    }
+    .event_sec1 li:first-child {
+        margin-top: 0;
+    }
+    .event_sec1 li:nth-child(2) {
+        margin-top: 0;
+    }
+    .event_oning h3>p {
+        font-size: 12px;
+    }
+    .event_oning h3 {
+        margin-bottom: 0;
+    }
+    .bb  {
+        height: 100%;
+    }
+
+    /***event box click***/
+    .ev_box {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+/********MAX-WIDTH 765PX*******/
+}
+
+@media only screen and (max-width: 450px) {
+    .event_sec1 li .period {
+        padding: 4px 8px;
+        font-size: 9px;
+    }
+    .bb  {
+        height: 100%;
+    }
+        
+    
+}
