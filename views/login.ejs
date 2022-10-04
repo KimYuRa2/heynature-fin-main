@@ -5,18 +5,23 @@
         <section class="w1200">
             <div class="log_main_wrap">
                 <h2>HEYNATURE</h2>
+
+                
                 <div class="form_wrap">
-                    <form>
+                    <form method = "POST" action="/login">
                         <div class="id">
-                            <input type="text" class="id_box" placeholder="아이디">
+                            <input id="id" name="userId" type="text" class="id_box" placeholder="아이디">
                         </div>
                         <div class="pw">
-                            <input type="password" class="pw_box" placeholder="비밀번호">
+                            <input id="psword" name="userPassword" type="password" class="pw_box" placeholder="비밀번호">
                         </div>
                         <div  class="login_btn">
-                            <a href="#">로그인하기</a>
+                            <!-- <a id="login_button" href="#">로그인하기</a> -->
+                            <input type = "submit" value="로그인">
                         </div>
                     </form>
+
+                    
                     <ul class="find_page_con">
                         <li>
                             <a class="f_id" href="find">ID·PW 찾기</a>
@@ -33,6 +38,4 @@
                 </div>
             </div>
         </section>
-
-        <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script> -->
      

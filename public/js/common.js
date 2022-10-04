@@ -1,3 +1,8 @@
+
+// client 처리 부분 - axios 전역 설정
+axios.defaults.withCredentials = true; // withCredentials 전역 설정
+
+
 /* header - searchbar(0615수정) */
 
 function bannerX(){

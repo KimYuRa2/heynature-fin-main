@@ -4,11 +4,11 @@ const moment = require('moment'); // 날짜 포멧을 위한 모듈
 
 /* ura31 - heroku cleardb */
 // var connection = mysql.createConnection({
-//     host : 'us-cdbr-east-05.cleardb.net',
-//     user : 'bcb044d7c6380d',
-//     password : '42c66e7e',
+//     host :  process.env.DB_HOST || 'localhost',
+//     user : process.env.DB_USER || 'root',
+//     password : process.env.DB_PSWORD || '1234',
 //     port : '3306',
-//     database : 'heroku_41d72d1cd2bf48f',
+//     database : process.env.DB_DATABASE || 'heynature-local',
 //     dateStrings:'date'
 // })
 
@@ -21,6 +21,9 @@ var connection = mysql.createConnection({
     database: 'heynature-local',
     dateStrings:'date'
 })
+/*******************************************/
+
+
 
 /******************* heynature (notice) ********************/
 
@@ -48,7 +51,6 @@ function insertNotice(title,content,callback){
         if(err) throw err;
         callback();
     })
-
 }
 
 
@@ -123,6 +125,7 @@ function deletedetailById(id,callback){
 
 
 module.exports = {
+    connection,
     getAllNotice,
     insertNotice,
     getNoticeById,

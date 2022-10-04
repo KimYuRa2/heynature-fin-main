@@ -1,0 +1,19 @@
+<ul id="kaTop">
+    <li onclick="getShowCT()"><a class="ka" id="ka" href="javascript:void(0);"></a></li>
+    <li><a class="top" id="top" href="javascript:void(0);"></a></li>
+</ul>
+
+<div class="menu_bar">
+    <ul>
+        <li><a href="">show</a></li>
+        <li><a href="">test</a></li>
+    <% if(is_logined == false){ %>
+        <li><a href="/login">login</a></li>
+        <li><a href="/join">register</a></li>  
+    <% }else{ %>
+        <li><%= name %> 님 환영합니다!</li>
+        <li><a href="/logout">logout</a></li>  
+    <% } %>
+    </ul>
+</div>
+

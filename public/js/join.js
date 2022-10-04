@@ -23,6 +23,19 @@ const Myname = document.querySelector('.name');
 
 const elSubmitButton = document.querySelector('#subit-button');
 
+/***************************************/
+/*
+로그인을 하면 
+
+session.isLogined = true 로 바꿔준다! 
+
+다른 페이지에서 이걸 통해서 로그인한 사용자인지 아닌지를 확인한다.
+*/
+
+
+
+
+
 
 //-------- 유효성 검사 ---------//
 
@@ -321,3 +334,33 @@ function isMatch (password1, password2) {
 
 
 
+/********************************/
+/*
+fail이든 ok든 응답은 서버츠측에서 보낼때 stringfy시켜 보내기 때문에,
+다시 json형식으로 xhr.responseText를 복구 시켜주고, 안에 들어있는 내용에따라 출력을 달리해준다.
+*/
+
+// document.querySelector('.ajaxsend').addEventListener('click',function(){
+//   var userId = document.forms[0].elements[0].value;
+//   var userPassword = document.forms[0].elements[1].value;
+//   var inputdata = {'userId' : userId, 'userPassword' : userPassword };
+//   ajax_send('http://localhost:3000/register',inputdata);
+
+
+//   function ajax_send(url, inputdata){
+//     var data = JSON.stringify(inputdata); 
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('POST', url);
+//     xhr.setRequestHeader('Content-type', 'application/json');
+//     xhr.send(data);
+
+//     xhr.addEventListener('load', function(){
+//       var result = JSON.parse(xhr.responseText);
+//       if(result.result === 'fail'){
+//         document.querySelector('.a_result').innerHTML = '동일한 id의 사용자가 이미 존재합니다.';
+//       }else{
+//         document.querySelector('.a_result').innerHTML = '회원가입에 성공하였습니다.';
+//       }
+//     })
+//   }
+// })
